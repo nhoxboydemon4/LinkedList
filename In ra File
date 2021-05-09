@@ -1,0 +1,16 @@
+void outprintf(list l,int n,FILE *f){
+	getchar();
+	char filename[30];
+	printf("Nhap ten file: \n");
+	gets(filename);
+    f= fopen (filename,"ab");
+    if(f==NULL){
+    	printf("KHONG THE GHI FILE!!!");
+    	exit(0);
+	}
+	fprintf(f,"ho va ten nhan vien la \tque quan nhan vien la \tnam sinh cua nhan vien la \n");
+    for(node*p=l.pHead;p!=NULL;p=p->next){
+    	fprintf(f,"\t%s\t\t%s\t\t%d\n",p->data.ten,p->data.tinh,p->data.nam);
+	} 
+    fclose(f);
+}
