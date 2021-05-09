@@ -1,0 +1,48 @@
+void tim_que(list l, int n){
+	char s[50];
+	int k=0;
+	printf("nhap tinh can tim: ");
+	fflush(stdin);
+	gets(s);
+	for(node *p=l.pHead; p!= NULL;p=p->next){
+		if(strcmp(s,p->data.tinh)==0){
+		printf("ten nhan vien : %s\n ",p->data.ten);
+		printf("nam sinh %d\n",p->data.nam);
+		printf("tinh thanh %s\n",p->data.tinh);
+		k++;
+		}
+	}
+	if(k==0){
+		printf(" khong tim thay!\n");
+	}
+}
+void sap_xep(list &l, int n){
+	for(node *p=l.pHead; p!=NULL;p=p->next){
+		for(node *q=p->next;q!=NULL;q=q->next){
+			if(strcmp(p->data.tinh,q->data.tinh)<0){
+				nv t = p->data;
+				p->data = q->data;
+				q->data=t;
+			}
+		}
+	}
+}
+void dem(list l, int n){
+	for(node*p=l.pHead;p!=NULL;p=p->next){
+		strcpy(p->data.b,l.pHead->data.ten);//gia trin chua dc xet
+	}
+	printf("\n\t\t|TINH THANH   \t    SO LAN| \n");
+	for(node*p=l.pHead;p!=NULL;p=p->next){
+		int k=1;
+		if(strcmp(p->data.b,l.pHead->data.ten)==0){
+		strcpy(p->data.b,l.pTail->data.ten);
+		  for(node *q=p->next;q!=NULL;q=q->next){
+			if(strcmp(p->data.tinh,q->data.tinh)==0){
+				k++;
+				strcpy(q->data.tinh,l.pTail->data.ten);
+			}
+		}
+		printf("\t\t|%s\t    \t%d |\n",p->data.tinh , k);
+	}
+  }
+}
