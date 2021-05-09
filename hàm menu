@@ -1,0 +1,53 @@
+void menu(){
+	int chon, t,flat=1;
+	while(flat==1){
+		SetColor(7);
+		printf("\t\tMoi ban chon chuc nang:\n\n");
+		SetColor(2);
+		printf("\t\t1. Nhap du lieu cua tung nhan vien.\n");
+		printf("\t\t2. Sap xep, thong kê va hien thi thong tin chi tiet cua tung nhan vien theo tinh.\n");
+		printf("\t\t3. Tim nhân vien theo tinh.\n");
+		printf("\t\t4. Xoa nhan vien theo ten.\n");
+		printf("\t\t5. Ghi vao tap tin nhi phan employee.dat.\n");
+		printf("\t\t6. Thoat.\n");
+		printf("\n\t\t\t ==>  ");
+		scanf("%d", &chon);
+		switch(chon){
+			case 1: 
+			    list l;
+			    system("cls");
+				int n;
+				SetColor(2);
+				printf ("Nhap so sinh vien: ");
+				scanf ("%d", &n);
+				nhap_nv(l,n);
+				printf("\n\n\n");
+				break;
+			case 2:
+				system("cls");
+				printf("\nThong tin sinh vien da nhap vao la: \n");
+				sap_xep(l,n);
+				in_nv(l);	
+				printf("\n\n");
+				dem(l,n);
+				printf("\n\n\n");
+				break;
+			case 3:
+				system("cls");
+				printf("tim nhan vien theo tinh >>\n");
+				tim_que(l,n);
+				printf("\n\n\n");
+				break;
+			case 4:
+			them_nhan_vien(l,n);
+		    break;	
+			case 5: 
+			    FILE *f;
+				outprintf(l,n,f);
+				system("cls");
+				break;
+			case 6:
+				flat=0;		
+		}
+	}	
+}
